@@ -1,5 +1,6 @@
 import * as Icons from '../assets/icons';
 import { education, experience } from '../data/cv';
+import {data} from '../data/cv_revanth'
 
 export const CV = (): JSX.Element => (
   <div id="resume" className="space-y-6 font-mono">
