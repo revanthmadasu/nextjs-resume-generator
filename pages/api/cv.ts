@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import puppeteer, { Browser } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 
-import { CV1 } from '../../components/CV1';
+import { CV1 } from '../../components/CV';
 
 const html = `
   <!doctype html>

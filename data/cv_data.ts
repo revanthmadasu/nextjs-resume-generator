@@ -1,4 +1,57 @@
-export const data = {
+interface SocialLink {
+  readable: string;
+  link: string;
+}
+
+interface Skill {
+  skill: string;
+  level: number;
+  optional?: boolean;
+}
+
+export interface SkillSetCategory {
+  type: string;
+  skills: Skill[];
+}
+
+interface PersonalData {
+  name: string;
+  website: SocialLink;
+  email: SocialLink;
+  github: SocialLink;
+  linkedin: SocialLink;
+  skillset: SkillSetCategory[];
+}
+
+interface WorkExperience {
+  company: string;
+  position: string;
+  url: string;
+  location: string;
+  start: string;
+  end: string;
+  description: string[];
+}
+
+interface Education {
+  degree: string;
+  university: string;
+  url: string;
+  location: string;
+  start: string;
+  end: string;
+  description: string[];
+}
+
+export interface ResumeData {
+  personal: PersonalData;
+  work_experience: WorkExperience[];
+  education: Education[];
+}
+
+
+
+export const data: ResumeData = {
     "personal": {
       "name": "Revanth Madasu",
       "website": {
@@ -43,6 +96,7 @@ export const data = {
                   },
                   {
                     "skill": "C#",
+                    "level": 6,
                     "optional": true
                   }
               ]

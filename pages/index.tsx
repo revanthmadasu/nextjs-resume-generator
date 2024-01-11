@@ -1,11 +1,12 @@
 import type { NextPage } from 'next';
-import { CV } from '../components/CV';
-import { CV1 } from '../components/CV1'
+import { CV } from '../components/CV_template';
+import { CV1 } from '../components/CV'
+import { data } from '../data/cv_data';
 
 const Home: NextPage = () => {
   return (
     <div className="mt-8 md:mt-20 max-w-4xl mx-auto px-6 md:px-10">
-      <CV1 />
+      <CV1 {...data}/>
     </div>
   );
 };
