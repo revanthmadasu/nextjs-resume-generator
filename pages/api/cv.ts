@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import puppeteer, { Browser } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 
-import { CV } from '../../components/CV';
+import { CV1 } from '../../components/CV1';
 
 const html = `
   <!doctype html>
@@ -10,11 +10,11 @@ const html = `
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Yusef Habib - CV</title>
+        <title>Revanth Madasu - CV</title>
         <link rel="stylesheet" href="http://localhost:3000/build.css" />
       </head>
       <body style="padding: 40px 60px;">
-        ${ReactDOMServer.renderToStaticMarkup(CV())}
+        ${ReactDOMServer.renderToStaticMarkup(CV1())}
       </body>
     </html>`;
 
@@ -27,9 +27,12 @@ const handler = async (_: NextApiRequest, res: NextApiResponse) => {
     await page.setContent(html);
     const pdf = await page.pdf({
       scale: 0.85,
-      pageRanges: '1',
+      pageRanges: '1-2',
     });
-
+    if (_.query['download']) {
+        const fileName = _.query['fileName'] || 'revanth_madasu.pdf';
+        res.setHeader('Content-Disposition', `attachment; filename=${fileName}`);
+    }
     res.setHeader('Content-Type', 'application/pdf');
     res.send(pdf);
   } catch (err) {
