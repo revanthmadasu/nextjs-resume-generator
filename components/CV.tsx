@@ -1,5 +1,5 @@
 import * as Icons from '../assets/icons';
-import {ResumeData, SkillSetCategory} from '../data/cv_data'
+import { ResumeData, SkillSetCategory } from '../types/cv_types';
 
 const NameComp = (props: {name: string}): JSX.Element => {
     const {name} = props;
