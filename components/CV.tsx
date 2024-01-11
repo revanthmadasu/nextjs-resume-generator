@@ -29,8 +29,11 @@ const SkillSetComp = ({skillset}: {skillset: SkillSetCategory[]}): JSX.Element =
     {agg.map(aggregated_skillset => {
         const agg_skills: any[] = [];
         aggregated_skillset.included.forEach(skill_set => {
-            const matched_skills = skillset.filter(skill_set_item => skill_set_item.type == skill_set)[0].skills;
-            agg_skills.push(...matched_skills);
+            const matched_skillsets = skillset.filter(skill_set_item => skill_set_item.type == skill_set);
+            if (matched_skillsets.length) {
+               const matched_skills = matched_skillsets[0].skills;
+                agg_skills.push(...matched_skills);
+            }
         });
         agg_skills.sort((skill1, skill2) => Number(skill2.level) - Number(skill1.level) )
 

@@ -7,6 +7,7 @@ export interface Skill {
     skill: string;
     level: string;
     optional?: boolean;
+    new?: boolean;
   }
   
   export interface SkillSetCategory {
