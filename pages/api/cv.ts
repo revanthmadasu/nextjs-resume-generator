@@ -3,20 +3,8 @@ import puppeteer, { Browser } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 
 import { CV1 } from '../../components/CV';
+import { data } from '../../data/cv_data';
 
-const html = `
-  <!doctype html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Revanth Madasu - CV</title>
-        <link rel="stylesheet" href="http://localhost:3000/build.css" />
-      </head>
-      <body style="padding: 40px 60px;">
-        ${ReactDOMServer.renderToStaticMarkup(CV1())}
-      </body>
-    </html>`;
 
 const handler = async (_: NextApiRequest, res: NextApiResponse) => {
   const args = ['--no-sandbox', '--disable-setuid-sandbox'];
@@ -24,6 +12,20 @@ const handler = async (_: NextApiRequest, res: NextApiResponse) => {
   try {
     browser = await puppeteer.launch({ args, pipe: true });
     const page = await browser.newPage();
+    const resumeData = _.body['resumeData'] ? _.body['resumeData'] : data;
+    const html = `
+      <!doctype html>
+        <html lang="en">
+          <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Revanth Madasu - CV</title>
+            <link rel="stylesheet" href="http://localhost:3000/build.css" />
+          </head>
+          <body style="padding: 40px 60px;">
+            ${ReactDOMServer.renderToStaticMarkup(CV1(resumeData))}
+          </body>
+        </html>`;
     await page.setContent(html);
     const pdf = await page.pdf({
       scale: 0.85,

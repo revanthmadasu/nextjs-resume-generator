@@ -32,7 +32,7 @@ const SkillSetComp = ({skillset}: {skillset: SkillSetCategory[]}): JSX.Element =
             const matched_skills = skillset.filter(skill_set_item => skill_set_item.type == skill_set)[0].skills;
             agg_skills.push(...matched_skills);
         });
-        agg_skills.sort((skill1, skill2) => skill2.level - skill1.level )
+        agg_skills.sort((skill1, skill2) => Number(skill2.level) - Number(skill1.level) )
 
         return <>
             <div>

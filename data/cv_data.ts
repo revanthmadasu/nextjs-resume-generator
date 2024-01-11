@@ -5,7 +5,7 @@ interface SocialLink {
 
 interface Skill {
   skill: string;
-  level: number;
+  level: string;
   optional?: boolean;
 }
 
@@ -76,27 +76,27 @@ export const data: ResumeData = {
               "skills": [
                   {
                       "skill": "Javascript",
-                      "level": 10
+                      "level": "10"
                   },
                   {
                       "skill": "Typescript",
-                      "level": 10
+                      "level": "10"
                   },
                   {
                     "skill": "Python",
-                    "level": 9
+                    "level": "9"
                   },
                   {
                       "skill": "Java",
-                      "level": 8
+                      "level": "8"
                   },
                   {
                       "skill": "PHP",
-                      "level": 6
+                      "level": "6"
                   },
                   {
                     "skill": "C#",
-                    "level": 6,
+                    "level": "6",
                     "optional": true
                   }
               ]
@@ -106,47 +106,47 @@ export const data: ResumeData = {
               "skills": [
                   {
                       "skill": "React",
-                      "level": 10,
+                      "level": "10"
                   },
                   {
                       "skill": "Angular",
-                      "level": 10,
+                      "level": "10"
                   },
                   {
                     "skill": "Redux",
-                    "level": 10,
+                    "level": "10"
                   },
                   {
                     "skill": "Ngrx",
-                    "level": 8,
+                    "level": "8"
                   },
                   {
                     "skill": "Cypress",
-                    "level": 8,
+                    "level": "8"
                   },
                   {
                     "skill": "Jasmine",
-                    "level": 8,
+                    "level": "8"
                   },
                   {
                     "skill": "Next",
-                    "level": 8,
+                    "level": "8"
                   },
                   {
                     "skill": "Flask",
-                    "level": 8
+                    "level": "8"
                   },
                   {
                     "skill": "Node.js",
-                    "level": 8
+                    "level": "8"
                   },
                   {
                     "skill": "Express.js",
-                    "level": 8
+                    "level": "8"
                   },
                   {
                     "skill": ".net",
-                    "level": 7,
+                    "level": "7",
                     "optional": true
                   }
               ]
@@ -156,20 +156,20 @@ export const data: ResumeData = {
             "skills": [
                 {
                     "skill": "HTML",
-                    "level": 10,
+                    "level": "10"
                 },
                 {
                     "skill": "CSS",
-                    "level": 10,
+                    "level": "10"
                 },
                 {
                   "skill": "Bootstrap",
-                  "level": 8,
+                  "level": "8"
                 },
                 {
                   "skill": "Webpack",
-                  "level": 7,
-                },
+                  "level": "7"
+                }
             ]
           },
           {
@@ -177,39 +177,39 @@ export const data: ResumeData = {
             "skills": [
               {
                 "skill": "SQL",
-                "level": 9,
+                "level": "9"
               },
               {
                 "skill": "MySQL",
-                "level": 9,
+                "level": "9"
               },
               {
                 "skill": "MongoDB",
-                "level": 7
+                "level": "7"
               },
               {
                 "skill": "Firebase",
-                "level": 8,
+                "level": "8"
               },
               {
                 "skill": "GCP",
-                "level": 7,
+                "level": "7"
               },
               {
                 "skill": "AWS",
-                "level": 7,
+                "level": "7"
               },
               {
                 "skill": "New Relic",
-                "level": 9,
+                "level": "9"
               },
               {
                 "skill": "Android Studio",
-                "level": 7
+                "level": "7"
               },
               {
                 "skill": "Snowflake",
-                "level": 6,
+                "level": "6",
                 "optional": true
               }
             ]
@@ -294,9 +294,8 @@ export const data: ResumeData = {
         "description": [
           "Developed an advanced Instant Messaging application named aChat.",
           "Graduated with 8.59 CGPA",
-          "Led \"IT coding club\" and conducted several events",
+          "Led \"IT coding club\" and conducted several events"
         ]
       }
-      
     ]
 }
