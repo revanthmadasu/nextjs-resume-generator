@@ -22,6 +22,7 @@ export const data: ResumeData = {
       "skillset": [
           {
               "type": "programming",
+              "label": "Programming",
               "skills": [
                   {
                       "skill": "Javascript",
@@ -52,6 +53,7 @@ export const data: ResumeData = {
           },
           {
               "type": "web-frameworks",
+              "label": "Web",
               "skills": [
                   {
                       "skill": "React",
@@ -97,32 +99,28 @@ export const data: ResumeData = {
                     "skill": ".net",
                     "level": "7",
                     "optional": true
+                  },
+                  {
+                      "skill": "HTML",
+                      "level": "10"
+                  },
+                  {
+                      "skill": "CSS",
+                      "level": "10"
+                  },
+                  {
+                    "skill": "Bootstrap",
+                    "level": "8"
+                  },
+                  {
+                    "skill": "Webpack",
+                    "level": "7"
                   }
               ]
           },
           {
-            "type": "web",
-            "skills": [
-                {
-                    "skill": "HTML",
-                    "level": "10"
-                },
-                {
-                    "skill": "CSS",
-                    "level": "10"
-                },
-                {
-                  "skill": "Bootstrap",
-                  "level": "8"
-                },
-                {
-                  "skill": "Webpack",
-                  "level": "7"
-                }
-            ]
-          },
-          {
             "type": "Data, Platform & Other",
+            "label": "Data, Platform & Other",
             "skills": [
               {
                 "skill": "SQL",
@@ -230,7 +228,7 @@ export const data: ResumeData = {
         "start": "January 2023",
         "end": "May 2024",
         "description": [
-          "Relevant coursework: Data Analysis and Mining, Data Structures, Databases, Computer Networks, Web Development, Software Engineering, Algorithms."
+          "Relevant coursework: Data Analysis and Mining, Data Structures, Data visualization, Databases, Computer Networks, Web Development, Software Engineering, Algorithms."
         ]
       },
       {

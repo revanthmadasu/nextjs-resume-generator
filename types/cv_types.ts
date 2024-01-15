@@ -12,6 +12,7 @@ export interface Skill {
   
   export interface SkillSetCategory {
     type: string;
+    label: string;
     skills: Skill[];
   }
   
