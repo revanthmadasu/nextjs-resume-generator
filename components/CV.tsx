@@ -137,7 +137,7 @@ export const CV1 = (data: ResumeData): JSX.Element => (
               <span>{ed.start+' - '+ed.end}</span>
             </div>
             <span className="italic">{ed.degree}</span>
-            {ed.description.map(desc => <p>{desc}</p>)}
+            {ed.description.map(desc => <p key={desc}>{desc}</p>)}
           </div>
         </div>
       ))}

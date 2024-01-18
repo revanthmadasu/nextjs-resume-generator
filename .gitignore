@@ -19,6 +19,9 @@
 .DS_Store
 *.pem
 
+# serverless
+.serverless
+.serverless_nextjs
 # debug
 npm-debug.log*
 yarn-debug.log*
