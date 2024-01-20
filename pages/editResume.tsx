@@ -1,11 +1,11 @@
-// import { NextPage } from "next";
 import type { NextPage } from 'next';
-import React, { SyntheticEvent, useCallback, useEffect, useMemo, useState, useRef } from 'react';
+import React, { useCallback, useMemo, useState, useRef } from 'react';
 import { PersonalData, ResumeData } from '../types/cv_types';
 import { CV1 } from '../components/CV';
+import DescriptionTextBox from '../components/DescriptionTextBox';
 
 
-const EditResume = () => {
+const EditResume = (): NextPage => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [personalData, setPersonalData] = useState<PersonalData>({
     name: '',
@@ -87,14 +87,6 @@ const EditResume = () => {
         }
     }, [personalData, workExperience, education]);
 
-    // useEffect(() => {
-    //   setResumeData({
-    //     "personal": personalData,
-    //     "work_experience": workExperience,
-    //     "education": education
-    //   });
-    // }, [personalData, workExperience, education]);
-
     const resumeDataJsonStr = useMemo(() => JSON.stringify(resumeData, null, "\t"), [resumeData]);
     
   const handlePersonalDataChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,6 +106,16 @@ const EditResume = () => {
         ...newPerData
       });
   };
+
+  const handleDescriptionChange = useCallback((type: string, index: number, descItems: string[]) => {
+    if (type === 'work_experience') {
+      workExperience[index].description = descItems;
+      setWorkExperience([...workExperience]);
+    } else if (type === 'education') {
+      education[index].description = descItems;
+      setEducation([...education]);
+    }
+  }, []);
 
   const onImportData = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     if (e && e.target && e.target.files) {
@@ -500,15 +502,7 @@ const handleEducationChange = (e: React.ChangeEvent<HTMLInputElement>, index: nu
                 className="w-full bg-gray-700 border border-gray-600 rounded-md p-2 mb-2"
             />
             <h3 className="text-xl mt-2 mb-2">Description</h3>
-            {experience.description.map((desc, descIndex) => (
-                <textarea
-                key={descIndex}
-                name={`description-${descIndex}`}
-                value={desc}
-                onChange={(e) => handleWorkExperienceDescriptionChange(e, index, descIndex)}
-                className="w-full h-16 bg-gray-700 border border-gray-600 rounded-md p-2 mb-2"
-                />
-            ))}
+            <DescriptionTextBox descItems={workExperience[index].description} type='work_experience' index={index} handleDescriptionChange={handleDescriptionChange}/>
             <button
                 onClick={() => deleteWorkExperience(index)}
                 className="text-red-500 hover:text-red-600 font-bold mt-2 ml-2"
@@ -538,15 +532,7 @@ const handleEducationChange = (e: React.ChangeEvent<HTMLInputElement>, index: nu
                         />
                         {/* Add similar fields for university, location, URL, start, end */}
                         <h3 className="text-xl mt-2 mb-2">Description</h3>
-                        {edu.description.map((desc, descIndex) => (
-                        <textarea
-                            key={descIndex}
-                            name={`edu-description-${descIndex}`}
-                            value={desc}
-                            onChange={(e) => handleEducationDescriptionChange(e, index, descIndex)}
-                            className="w-full h-16 bg-gray-700 border border-gray-600 rounded-md p-2 mb-2"
-                        />
-                        ))}
+                        <DescriptionTextBox descItems={education[index].description} type='education' index={index} handleDescriptionChange={handleDescriptionChange}/>
                         <button
                         onClick={() => deleteEducation(index)}
                         className="text-red-500 hover:text-red-600 font-bold mt-2 ml-2"

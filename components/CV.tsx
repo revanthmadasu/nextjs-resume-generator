@@ -1,5 +1,6 @@
 import * as Icons from '../assets/icons';
 import { ResumeData, SkillSetCategory } from '../types/cv_types';
+import { getBoldHtml } from '../utils/utils';
 
 const NameComp = (props: {name: string}): JSX.Element => {
     const {name} = props;
@@ -112,8 +113,8 @@ export const CV1 = (data: ResumeData): JSX.Element => (
             </div>
             <div>
               <ul className="list-disc pl-8">
-                {exp.description.map((desc_item) => (
-                  <li key={desc_item} dangerouslySetInnerHTML={{__html: desc_item}}></li>
+                {exp.description.map(descItem => getBoldHtml(descItem)).map((descItem) => (
+                  <li key={descItem} dangerouslySetInnerHTML={{__html: descItem}}></li>
                 ))}
               </ul>
             </div>
@@ -137,7 +138,7 @@ export const CV1 = (data: ResumeData): JSX.Element => (
               <span>{ed.start+' - '+ed.end}</span>
             </div>
             <span className="italic">{ed.degree}</span>
-            {ed.description.map(desc => <p key={desc}>{desc}</p>)}
+            {ed.description.map(desc => getBoldHtml(desc)).map(desc => <p key={desc} dangerouslySetInnerHTML={{__html: desc}}></p>)}
           </div>
         </div>
       ))}
