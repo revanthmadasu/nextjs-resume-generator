@@ -7,10 +7,13 @@ import { data } from '../../data/cv_data';
 
 
 const handler = async (_: NextApiRequest, res: NextApiResponse) => {
-  const args = ['--no-sandbox', '--disable-setuid-sandbox'];
+  // const args = ['--no-sandbox', '--disable-setuid-sandbox'];
+  const args = ['--no-sandbox', '--disable-dev-shm-usage'];
+
   let browser;
   try {
-    browser = await puppeteer.launch({ args, pipe: true });
+    // browser = await puppeteer.launch({ args, pipe: true });
+    browser = await puppeteer.launch({ args, headless: true });
     const page = await browser.newPage();
     const resumeData = _.body['resumeData'] ? _.body['resumeData'] : data;
     const html = `
@@ -37,6 +40,7 @@ const handler = async (_: NextApiRequest, res: NextApiResponse) => {
     }
     res.setHeader('Content-Type', 'application/pdf');
     res.send(pdf);
+    // res.status(200).json({ name: 'John Doe' })
   } catch (err) {
     const e = err as Error;
     console.log(`Error: ${e?.message}`);
